@@ -1,0 +1,107 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-grid class="ion-no-padding">
+
+      <ion-row>
+        <ion-col class="breadcrumb">
+          <h5>Patient Demographics</h5>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>{{[basic.pid, basic.facility, basic.age].join(', ')}} years</ion-card-subtitle>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <img src="https://raw.githubusercontent.com/ionic-team/ionic-docs/master/src/demos/api/avatar/avatar.svg">
+                </ion-avatar>
+                <ion-card-title>{{basic.name}}</ion-card-title>
+              </ion-item>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-grid >
+                <ion-row>
+                  <ion-col>Patient Type </ion-col>
+                  <ion-col>: {{basic.patient_type}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Costa Rica ID </ion-col>
+                  <ion-col>: {{basic.ssn}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Gender </ion-col>
+                  <ion-col>: {{basic.gender}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Language </ion-col>
+                  <ion-col>: {{basic.lang}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>DOB </ion-col>
+                  <ion-col>: {{basic.dob}}, {{basic.age}} Years </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Phone Number </ion-col>
+                  <ion-col>: {{basic.phone}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Address </ion-col>
+                  <ion-col>: {{basic.address}} </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Primary Insurance</ion-card-subtitle>
+              <ion-card-title>Policy</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-grid >
+                <ion-row>
+                  <ion-col>Provider </ion-col>
+                  <ion-col> : {{insurance.provider}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Plan Name </ion-col>
+                  <ion-col> : {{insurance.plan}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Date From </ion-col>
+                  <ion-col> : {{insurance.dateFrom}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Policy Number </ion-col>
+                  <ion-col> : {{insurance.policyNo}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>City </ion-col>
+                  <ion-col> : {{insurance.city}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Country </ion-col>
+                  <ion-col> : {{insurance.country}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Address </ion-col>
+                  <ion-col> : {{insurance.address}} </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>Zip Code: </ion-col>
+                  <ion-col> : {{insurance.zip}} </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

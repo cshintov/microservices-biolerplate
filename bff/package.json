@@ -1,0 +1,23 @@
+{
+  "name": "blueEHR-BFF",
+  "version": "1.0.0",
+  "description": "A BFF abstract to test Micro-services cycle",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Sony George",
+  "license": "GPL",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0"
+  }
+}
