@@ -1,3 +1,0 @@
-'time': 24 Feb, 2021  09:50:36:73 +00:00(UTC), 'level': CRITICAL, 'file': settings.py, 'line': 41, 'msg': [Mongo] - DB connection has failed - name '_client' is not defined
-'time': 24 Feb, 2021  09:50:50:68 +00:00(UTC), 'level': CRITICAL, 'file': core.py, 'line': 35, 'msg': DB is not initialised!!
-'time': 24 Feb, 2021  09:51:27:79 +00:00(UTC), 'level': CRITICAL, 'file': settings.py, 'line': 41, 'msg': [Mongo] - DB connection has failed - name '_client' is not defined

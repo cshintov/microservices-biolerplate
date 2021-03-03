@@ -1,4 +1,4 @@
 *.ssn
 *.swp
 **/*.log
-patins/__pycache__/
+__pycache__/
