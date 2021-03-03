@@ -42,5 +42,6 @@ $container['logFactory'] = function($c) {
 
 // default logger will be 'logger'
 $container['logger'] = function($c) {
-    return $c['logFactory']($c);
+    #return $c['logFactory']($c);
+    return new \Api\Core\Container\Logger($c, "");
 };

@@ -15,7 +15,7 @@ services:
       - MONGO_PORT=27017
       - MONGO_USER=monk
       - MONGO_PSWD=mongopassword
-      - MONGO_URI_CONNECT=mongodb://pre-demo_patinsdb_1:27017
+      - MONGO_URI_CONNECT=mongodb://patinsdb:27017
 
 
   patinsdb:
@@ -38,6 +38,7 @@ services:
     volumes:
       - ./patdemo/code:/usr/share/nginx/html/
       - ./patdemo/site.conf:/etc/nginx/conf.d/default.conf
+      - ./patdemo/log:/var/log/patdemo
 
 
   patdemocode:

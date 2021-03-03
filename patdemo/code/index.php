@@ -7,6 +7,16 @@ define('ROOT_PATH', dirname(__FILE__) );
 define('BASE_PATH', ROOT_PATH .'/app/');
 require_once ("./app/conf/settings.php");
 require_once ("./app/conf/autoload.php");
+require_once ("./app/core/Container/Logger.php");
+require_once ("./app/core/Container/Auth.php");
+require_once ("./app/core/Container/Controller.php");
+require_once ("./app/core/Container/Model.php");
+require_once ("./app/core/Container/DataSignature.php");
+require_once ("./app/core/Http/Router.php");
+require_once ("./app/core/Http/Request.php");
+require_once ("./app/core/Http/Response.php");
+require_once ("./app/modules/patient/Patient.php");
+require_once ("./app/modules/patient/PatientModel.php");
 require_once ("./app/conf/services.php");
 require_once ("./app/conf/routes.php");
 
