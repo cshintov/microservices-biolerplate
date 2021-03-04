@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: patdemocode
+  name: patdemocode
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: patdemocode
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: patdemocode
+    spec:
+      containers:
+        - image: lyberteam/php-fpm-7.1
+          name: patdemocode
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html/
+              name: patdemocode-claim0
+            - mountPath: /usr/local/etc/php/conf.d/code.ini
+              name: patdemocode-claim1
+            - mountPath: /var/log/patdemo
+              name: patdemocode-claim2
+      restartPolicy: Always
+      volumes:
+        - name: patdemocode-claim0
+          persistentVolumeClaim:
+            claimName: patdemocode-claim0
+        - name: patdemocode-claim1
+          persistentVolumeClaim:
+            claimName: patdemocode-claim1
+        - name: patdemocode-claim2
+          persistentVolumeClaim:
+            claimName: patdemocode-claim2
+status: {}

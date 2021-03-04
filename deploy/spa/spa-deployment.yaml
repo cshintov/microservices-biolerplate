@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: spa
+  name: spa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: spa
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: spa
+    spec:
+      containers:
+        - image: spa
+          name: spa
+          ports:
+            - containerPort: 8000
+          resources: {}
+          volumeMounts:
+            - mountPath: /app/node_modules
+              name: spa-claim0
+            - mountPath: /app
+              name: spa-claim1
+      restartPolicy: Always
+      volumes:
+        - name: spa-claim0
+          persistentVolumeClaim:
+            claimName: spa-claim0
+        - name: spa-claim1
+          persistentVolumeClaim:
+            claimName: spa-claim1
+status: {}

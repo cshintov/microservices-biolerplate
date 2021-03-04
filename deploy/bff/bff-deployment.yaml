@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: bff
+  name: bff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: bff
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: bff
+    spec:
+      containers:
+        - image: bff
+          name: bff
+          ports:
+            - containerPort: 8080
+          resources: {}
+          volumeMounts:
+            - mountPath: /app/node_modules
+              name: bff-claim0
+            - mountPath: /app
+              name: bff-claim1
+      restartPolicy: Always
+      volumes:
+        - name: bff-claim0
+          persistentVolumeClaim:
+            claimName: bff-claim0
+        - name: bff-claim1
+          persistentVolumeClaim:
+            claimName: bff-claim1
+status: {}
