@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patdemocache
+  annotations:
+    dummy: dummy_value
+  labels:
+    app: patdemocache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patdemocache
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        dummy: dummy_value
+      labels:
+        app: patdemocache
+    spec:
+      containers:
+        - env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+          image: bitnami/redis:latest
+          name: patdemo-cache
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - mountPath: /bitnami/redis/data
+              name: redis-persistent-cache
+      restartPolicy: Always
+      volumes:
+      - name: redis-persistent-storage
+        persistentVolumeClaim:
+          claimName: redis-pv-claim
+
+status: {}
