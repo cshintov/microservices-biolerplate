@@ -27,6 +27,8 @@ spec:
     spec:
       containers:
       - image: mysql:5.7
+        # command: ["sleep"]
+        # args: ["3600"]
         name: mysql
         env:
           # Use secret in real usage
@@ -44,8 +46,15 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+        - name: dbinitialize
+          mountPath: /docker-entrypoint-initdb.d
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-
+      - name: dbinitialize
+        configMap: 
+          name: initdb
+          items:
+          - key: default.sql
+            path: default.sql

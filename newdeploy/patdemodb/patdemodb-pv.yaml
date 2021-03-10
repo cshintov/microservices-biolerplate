@@ -12,6 +12,8 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data/mysql"
+    type: "DirectoryOrCreate"
+  persistentVolumeReclaimPolicy: Delete
 
 ---
 apiVersion: v1

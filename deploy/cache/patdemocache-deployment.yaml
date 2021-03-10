@@ -24,6 +24,8 @@ spec:
       labels:
         io.kompose.service: patdemocache
     spec:
+      securityContext:
+        fsGroup: 1001
       containers:
         - env:
             - name: ALLOW_EMPTY_PASSWORD

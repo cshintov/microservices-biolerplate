@@ -15,26 +15,24 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        dummy: dummy_value
       labels:
         app: patdemocache
     spec:
+      securityContext:
+        runAsUser: 0
       containers:
-        - env:
+        - image: bitnami/redis:latest
+          name: patdemo-cache
+          env:
             - name: ALLOW_EMPTY_PASSWORD
               value: "yes"
-          image: bitnami/redis:latest
-          name: patdemo-cache
           ports:
             - containerPort: 6379
           volumeMounts:
             - mountPath: /bitnami/redis/data
-              name: redis-persistent-cache
+              name: redis-persistent-storage
       restartPolicy: Always
       volumes:
       - name: redis-persistent-storage
         persistentVolumeClaim:
           claimName: redis-pv-claim
-
-status: {}

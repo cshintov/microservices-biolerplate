@@ -1,0 +1,4 @@
+configMapGenerator:
+- name: initdb
+  files:
+  - default.sql

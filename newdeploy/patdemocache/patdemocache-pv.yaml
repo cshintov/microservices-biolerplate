@@ -12,6 +12,8 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data/redis"
+    type: "DirectoryOrCreate"
+  persistentVolumeReclaimPolicy: Delete
 
 ---
 apiVersion: v1
