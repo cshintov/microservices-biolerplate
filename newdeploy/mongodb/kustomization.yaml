@@ -1,0 +1,6 @@
+configMapGenerator:
+- name: mongoinit
+  files:
+  - mongodata.js
+generatorOptions:
+ disableNameSuffixHash: true

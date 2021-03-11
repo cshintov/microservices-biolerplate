@@ -1,0 +1,6 @@
+configMapGenerator:
+- name: initdb
+  files:
+  - default.sql
+generatorOptions:
+ disableNameSuffixHash: true
