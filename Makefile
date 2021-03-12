@@ -10,5 +10,10 @@ push:
 	docker push $(AWS_ECR)/$(SERVICE):$(VERSION)
 
 portfwd:
-	kubectl port-forward service/patins 3000:http &
-	kubectl port-forward service/patdemo 3001:nginx &
+	kubectl port-forward service/patins http &
+	kubectl port-forward service/patdemo nginx &
+	kubectl port-forward service/bff bff &
+	kubectl port-forward service/spa spa &
+
+pfk:
+	pkill kubectl

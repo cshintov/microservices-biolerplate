@@ -7,7 +7,7 @@ const router = express.Router();
 
 const insurance = {
     "method": "get",
-    "url": "http://patinsapi:8081/patient/insurance/detail",
+    "url": "http://patins:8081/patient/insurance/detail",
     "headers": {
         "User-Agent": "BFF-1"
     }
@@ -15,7 +15,7 @@ const insurance = {
 
 const basicInfo = {
     "method": "get",
-    "url": "http://patdemoapi/patient/basic?pid=7728",
+    "url": "http://patdemo:8082/patient/basic?pid=7728",
     "headers": {
         "User-Agent": "BFF-1"
     }

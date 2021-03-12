@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: spa
+  labels:
+    app: spa
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spa
+
+  template:
+    metadata:
+      labels:
+        app: spa
+
+    spec:
+      containers:
+      - name: spa
+        image: 433581887735.dkr.ecr.ap-south-1.amazonaws.com/spa:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
